@@ -1,0 +1,47 @@
+{
+  "name": "react-tutorial-with-redux",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Code from the React tutorial with redux.",
+  "main": "server.js",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "express-session": "^1.15.0",
+    "handlebars": "^4.0.6",
+    "jquery": "~2.1.4",
+    "oauth": "^0.9.15",
+    "oauthio-web": "^0.6.1",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4",
+    "react": "~0.13.3",
+    "react-redux": "~3.0.1",
+    "redux": "~3.0.2",
+    "redux-logger": "~2.0.1",
+    "redux-thunk": "~1.0.0",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {
+    "babelify": "~6.3.0",
+    "browserify": "~11.2.0",
+    "watchify": "~3.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify --extension=js -o ./public/dist/bundle.js ./public/src/index.js",
+    "start": "node server.js"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reactjs/react-tutorial.git"
+  },
+  "engines": {
+    "node": "0.12.x"
+  }
+}
