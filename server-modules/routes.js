@@ -69,9 +69,10 @@ var configRoutes = function (app, server, passport) {
     var data = req.query.data;
     var tw = hashTable[token];
     var requestPath = req.params[0];
+    // console.log(Object.keys(hashTable), token);
     if (typeof tw === "undefined") return res.sendStatus(401);
-    console.log(requestPath, data);
-    tw.get(requestPath, {})
+    console.info(`GET [[${requestPath}]]  query: ${JSON.stringify(data)}`);
+    tw.get(requestPath, data)
       .then(function (body) { res.json(body); })
       .catch(function (err) { console.log(err); res.sendStatus(500); });
   });

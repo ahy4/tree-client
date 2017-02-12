@@ -7,7 +7,6 @@ var TwitterStrategy = require('passport-twitter').Strategy;
 // Sessionの設定
 // http://passportjs.org/guide/configure/
 passport.serializeUser(function(user, done) {
-  console.log(user);
   var userSession = {
     id: user.id,
     name: user.displayName,
