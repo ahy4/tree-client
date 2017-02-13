@@ -49,16 +49,15 @@ class TweetNode {
     let twsClone = tws.concat();
     tws.filter((tw) => { // 枝分かれしてるlevel1
       return tw.childIds.length >= 2 && tw.level == 1;
-    }).map((tw) => {return { // twとその子達をさがす
-      root: tw,
-      children: tw.findAllChildren(tws)
-    }}).forEach(({root, children}, i) => {
-      const rootIdx = twsClone.map(o => o.statusId).indexOf(root.statusId);
-      twsClone.splice(rootIdx+1, 0, children); // 根の次の要素として子を追加
+    }).map((tw) => {
+      return [tw].concat(tw.findAllChildren(tws)); // twとその子達をさがす
+    }).forEach((tree, i) => {
+      const latestIdx = twsClone.map(o => o.statusId).indexOf(tree[tree.length-1].statusId);
+      twsClone.splice(latestIdx, 0, tree); // 最新リプの次の要素として木を追加
       twsClone = Array.prototype.concat.apply([], twsClone); // flatten
-      children.forEach((c) => { // 子を消す
-        const childIdx = twsClone.map(o => o.statusId).lastIndexOf(c.statusId);
-        twsClone.splice(childIdx, 1);
+      tree.forEach((node) => { // もともとあった木の要素を全消し
+        const nodeIdx = twsClone.map(o => o.statusId).indexOf(node.statusId);
+        twsClone.splice(nodeIdx, 1);
       });
     });
 
