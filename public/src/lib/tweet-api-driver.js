@@ -13357,7 +13357,7 @@ var res = [
     "lang": "ja"
   }
 ];
-
+res.reverse();
 export function fetch2(url) {
   return new Promise((resolve, reject) => {
     resolve(res);

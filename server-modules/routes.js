@@ -22,7 +22,7 @@ var configRoutes = function (app, server, passport) {
   // main
   app.get('/', function (req, res) {
     // 認証保護
-    if (!(passport.session && passport.session.id)) return res.redirect('/auth/twitter'); // /login がいい
+    if (!req.session.passport) return res.redirect('/auth/twitter'); // /login がいい
     // キー達からhashとtwitterオブジェクト生成
     var userInfo = req.session.passport.user;
     var hash = createHash(JSON.stringify(userInfo));

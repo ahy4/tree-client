@@ -11,7 +11,7 @@ export function recieveTimeline(tweets) {
 
 export function fetchTimeline() {
   return dispatch => {
-    fetch2("/api/statuses/home_timeline", { count:100 })
+    fetch("/api/statuses/home_timeline", { count:200 })
       .then((tweets) => {
         dispatch(recieveTimeline(tweets));
       }).catch((error) => {

@@ -67,7 +67,7 @@ class TweetNode {
 
 export default class TweetList extends Component {
   render() {
-    const tws = TweetNode.createTree(this.props.tweets.map((tw) => new TweetNode(tw)));
+    const tws = TweetNode.createTree(this.props.tweets.map((tw) => new TweetNode(tw)).reverse());
     console.log(tws);
     const tweetComponents = tws.map((tw, idx) => {
       return (
