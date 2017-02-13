@@ -45,7 +45,10 @@ body {
 }
 
 .tweet-content {
-  padding-left: 10px;
+  padding-left: 12px;
+}
+.tweet {
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
