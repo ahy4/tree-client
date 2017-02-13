@@ -21,7 +21,7 @@ passport.deserializeUser(function(obj, done) {
 });
 
 var port = process.env.PORT || 3000;
-var url = process.env.NODE_ENV === "production" ? "https://tree-client.herokuapp.com" : "http://localhost:"+port;
+var url = process.env.NODE_ENV === "production" ? "https://nokogirl.cloudapp.net" : "http://localhost:"+port;
 passport.use(
   new TwitterStrategy({
     consumerKey: conf.consumer_key,
