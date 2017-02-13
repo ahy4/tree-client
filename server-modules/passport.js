@@ -21,11 +21,12 @@ passport.deserializeUser(function(obj, done) {
 });
 
 var port = process.env.PORT || 3000;
+var url = process.env.NODE_ENV === "production" ? "https://tree-client.herokuapp.com" : "http://localhost:"+port;
 passport.use(
   new TwitterStrategy({
     consumerKey: conf.consumer_key,
     consumerSecret: conf.consumer_secret,
-    callbackURL: "http://localhost:"+port+"/auth/twitter/callback"
+    callbackURL: url+"/auth/twitter/callback"
   },
   function(token, tokenSecret, profile, done) {
     passport.session.id = profile.id;
