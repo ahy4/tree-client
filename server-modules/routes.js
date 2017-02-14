@@ -1,7 +1,7 @@
 'use strict';
 var fs = require('fs');
 var path = require('path');
-var conf = require('../config.json');
+var conf = require('./config-wrap');
 var crypto = require('crypto');
 var Twitter = require('twitter');
 var Handlebars = require('handlebars');

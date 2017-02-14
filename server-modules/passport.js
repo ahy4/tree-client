@@ -1,4 +1,5 @@
-var conf = require('../config.json');
+var conf = require('./config-wrap');
+var path = require('path');
 
 // http://passportjs.org/guide/twitter/
 var passport = require('passport');
@@ -21,12 +22,12 @@ passport.deserializeUser(function(obj, done) {
 });
 
 var port = process.env.PORT || 3000;
-var url = process.env.NODE_ENV === "production" ? "https://nokogirl.cloudapp.net" : "http://localhost:"+port;
+var url = process.env.NODE_ENV === "production" ? process.env.url : "http://localhost:"+port;
 passport.use(
   new TwitterStrategy({
     consumerKey: conf.consumer_key,
     consumerSecret: conf.consumer_secret,
-    callbackURL: url+"/auth/twitter/callback"
+    callbackURL: path.join(url, "/auth/twitter/callback"),
   },
   function(token, tokenSecret, profile, done) {
     passport.session.id = profile.id;
