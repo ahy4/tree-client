@@ -27,7 +27,8 @@ passport.use(
   new TwitterStrategy({
     consumerKey: conf.consumer_key,
     consumerSecret: conf.consumer_secret,
-    callbackURL: path.join(url, "/auth/twitter/callback"),
+    callbackURL: "/auth/twitter/callback",
+    proxy: true
   },
   function(token, tokenSecret, profile, done) {
     passport.session.id = profile.id;
