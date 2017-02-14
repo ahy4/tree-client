@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === "production") {
     hash_password: process.env.hash_password,
     url: process.env.url
   };
-  // console.log(conf);
+  console.log(conf);
 } else {
   try {
     conf = require('./config.json');
