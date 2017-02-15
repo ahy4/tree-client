@@ -1,6 +1,6 @@
 ### custom ignore
 
-
+/dist/bundle.js
 
 config.json
 
